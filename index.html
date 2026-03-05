@@ -9,18 +9,20 @@
 
 <style>
 :root{
+/* ปรับโทนสีเป็น ดำ-ขาว ตามบรีฟ */
 --bg:#0a0a0a;
 --main:#ffffff;
 --dark:#eeeeee;
 --white:#1a1a1a;
 --glow:rgba(255,255,255,0.2);
+--text-muted:#888888;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Mitr',sans-serif;}
 
 body{
 background:var(--bg);
-background-image: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
+background-image: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%); /* พื้นหลังฟุ้ง */
 display:flex;
 justify-content:center;
 color: #fff;
@@ -37,11 +39,17 @@ background:var(--white);
 border-radius:20px;
 padding:25px 20px;
 margin-bottom:20px;
-box-shadow:0 0 25px rgba(255,255,255,0.05);
+box-shadow:0 0 25px rgba(255,255,255,0.05); /* เงาฟุ้ง */
 border:1px solid rgba(255,255,255,0.1);
+transition: 0.3s;
 }
 
-h1,h2,h3{color:var(--main);}
+.section:hover {
+border-color: var(--main);
+box-shadow: 0 0 30px var(--glow);
+}
+
+h1,h2,h3{color:var(--main); letter-spacing: 1px;}
 .center{text-align:center;}
 
 .logo{
@@ -51,7 +59,7 @@ overflow:hidden;
 margin:0 auto 20px;
 box-shadow:0 0 30px var(--glow);
 border: 2px solid var(--main);
-animation: float 4s ease-in-out infinite;
+animation: float 4s ease-in-out infinite; /* Animation ขยับได้ */
 }
 
 @keyframes float {
@@ -77,7 +85,7 @@ box-shadow:0 4px 10px rgba(0,0,0,0.3);
 font-size:13px;
 color:var(--dark);
 border: 1px solid rgba(255,255,255,0.1);
-animation: pulse 2s infinite;
+animation: pulse 2s infinite; /* ขยับฟุ้งๆ */
 }
 
 @keyframes pulse {
@@ -101,12 +109,16 @@ transition: 0.3s;
 background:transparent;
 border:2px dashed var(--main);
 color:var(--main);
+text-shadow: 0 0 10px var(--glow);
 }
 
 .btn-main{
 background:var(--main);
 color:#000;
+box-shadow: 0 0 15px var(--glow);
 }
+
+.btn:hover { transform: scale(1.02); filter: brightness(1.1); }
 
 .step{
 display:flex;
@@ -124,6 +136,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 font-size:13px;
+font-weight: bold;
 }
 
 .price-row{
@@ -133,6 +146,7 @@ margin-bottom:10px;
 background:rgba(255,255,255,0.03);
 padding:10px 15px;
 border-radius:15px;
+border: 1px solid rgba(255,255,255,0.05);
 }
 
 .price-tag{
@@ -141,6 +155,7 @@ color:#000;
 padding:3px 12px;
 border-radius:20px;
 font-size:14px;
+font-weight: 500;
 }
 
 .footer{
@@ -168,7 +183,17 @@ font-size:13px;
 border:1px solid rgba(255,255,255,0.1);
 }
 
-.small{font-size:12px;opacity:.5;margin-top:10px;}
+.small{font-size:12px; opacity:.5; margin-top:10px; color: var(--main);}
+
+/* รายละเอียดเพิ่มเติม */
+.note-box {
+    font-size: 11px;
+    color: var(--text-muted);
+    padding: 10px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    margin-top: 10px;
+    line-height: 1.5;
+}
 </style>
 </head>
 
@@ -176,58 +201,67 @@ border:1px solid rgba(255,255,255,0.1);
 <div class="container">
 
 <div class="section center" style="border:none;box-shadow:none;background:transparent;">
+
 <div class="logo">
-<img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=500&auto=format&fit=crop" alt="logo">
+<img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=500&auto=format&fit=crop" alt="khunxkinji logo">
 </div>
 
 <h1>khunxkinji 🕸️</h1>
 <p style="color:var(--dark);opacity:.8;margin:10px 0 20px;">
-Welcome to khunxkinji | พร้อมรับออเดอร์ครับ
+Welcome to khunxkinji | พร้อมรับออเดอร์ครับ 🛒
 </p>
 
 <div class="badges">
 <div class="badge">☁️ เติมเกม</div>
-<div class="badge">🎬 แอปพรีเมี่ยม</div>
+<div class="badge">🎬 แอพพรีเมี่ยม</div>
 <div class="badge">⚡ เปลี่ยนชื่อเฟส</div>
-<div class="badge">📸 แอปแต่งรูป</div>
+<div class="badge">📸 แอพแต่งรูป</div>
 </div>
 
-<a href="https://lin.ee/RVQspqT" class="btn btn-outline" target="_blank">
-เช็คคิวงาน ✨
+<a href="https://lin.ee/RVQspqT" class="btn btn-outline">
+เช็คคิวงาน / สถานะออเดอร์ ⏳
 </a>
 </div>
 
 <div class="section">
-<h2>📝 ขั้นตอนสั่งงาน</h2>
-<div class="step"><div class="step-num">1</div><div>แจ้งประเภทงานที่สนใจ</div></div>
-<div class="step"><div class="step-num">2</div><div>ตรวจสอบเรทราคาตามลิงก์</div></div>
-<div class="step"><div class="step-num">3</div><div>บรีฟรายละเอียด (ถ้ามี)</div></div>
-<div class="step"><div class="step-num">4</div><div>ชำระเงินและแจ้งหลักฐาน</div></div>
-<div class="step"><div class="step-num">5</div><div>รอรับออเดอร์ตามคิว</div></div>
+<h2>📋 บริการของเรา</h2>
 
-<a href="https://drive.google.com/drive/folders/1-Vrh2vz88kgTx96Sp_Z6yxkxQ8v2a8Rj" class="btn btn-main" target="_blank">ดูเรทแอปพรีเมี่ยมทั้งหมด</a>
+<div class="step"><div class="step-num">1</div><div>เติมเกมราคาถูก ปลอดภัย 100%</div></div>
+<div class="step"><div class="step-num">2</div><div>แอปพรีเมี่ยม / ซีรีส์จีน / ตัดต่อ</div></div>
+<div class="step"><div class="step-num">3</div><div>เปลี่ยนชื่อเฟส / แก้เฟสติด 60 วัน</div></div>
+<div class="step"><div class="step-num">4</div><div>แอปแต่งรูป AM / VSCO แบบส่วนตัว</div></div>
+<div class="step"><div class="step-num">5</div><div>บริการดูแลหลังการขาย สอบถามได้ตลอด</div></div>
+
+<a href="https://drive.google.com/drive/folders/1RSBGwZ51JKgfcLfvUSH8Wu5GlFtrB885" class="btn btn-main">ดูเรทเติมเกมทั้งหมด 🎮</a>
 </div>
 
 <div class="section">
-<h2>💰 ราคางานแนะนำ</h2>
-<div class="price-row"><span>เปลี่ยนชื่อเฟส</span><span class="price-tag">10฿</span></div>
-<div class="price-row"><span>แก้เฟสติด 60 วัน</span><span class="price-tag">15฿</span></div>
-<div class="price-row"><span>แก้ + เปลี่ยนชื่อ</span><span class="price-tag">20฿</span></div>
-<div class="price-row"><span>แอป AM (ส่วนตัว)</span><span class="price-tag">15฿</span></div>
+<h2>💳 เรทราคาแนะนำ</h2>
 
-<a href="https://drive.google.com/drive/folders/1RSBGwZ51JKgfcLfvUSH8Wu5GlFtrB885" class="btn btn-main" target="_blank">เช็คเรทเติมเกมคลิกเลย</a>
+<div class="price-row"><span>แอป AM (ส่วนตัว)</span><span class="price-tag">15฿</span></div>
+<div class="price-row"><span>แอป VSCO (ส่วนตัว)</span><span class="price-tag">10฿</span></div>
+<div class="price-row"><span>เปลี่ยนชื่อเฟส</span><span class="price-tag">10฿</span></div>
+<div class="price-row"><span>แก้เฟส 60 วัน + เปลี่ยนชื่อ</span><span class="price-tag">20฿</span></div>
+
+<a href="https://drive.google.com/drive/folders/1-Vrh2vz88kgTx96Sp_Z6yxkxQ8v2a8Rj" class="btn btn-main">ดูเรทแอปพรีเมี่ยมทั้งหมด 💎</a>
+
+<div class="note-box">
+    ⚠️ <b>หมายเหตุการแก้เฟส:</b> ต้องส่งเรื่องรอทางเฟสบุ๊ค 1 ชม. - 3 วัน แล้วแต่บัญชี (งดเร่ง) หากส่งแก้แล้วไม่ผ่านไม่สามารถคืนเงินได้ โปรดอ่านก่อนสั่งซื้อครับ
+</div>
 </div>
 
 <div class="footer">
-<a href="https://lin.ee/RVQspqT" class="btn btn-main" target="_blank">ติดต่อสอบถามคลิกที่นี่ 🎀</a>
+<a href="https://lin.ee/RVQspqT" class="btn btn-main">สั่งซื้อ / สอบถามทาง LINE ✨</a>
 
 <div class="socials">
-<a href="https://www.facebook.com/share/14Xoq1QLFbR/?mibextid=wwXIfr" target="_blank">Facebook</a>
-<a href="https://drive.google.com/drive/folders/18aTrqlbZ0WSCWp40Ep9OjWIJTsfvfTQp" target="_blank">ซีรีส์จีน</a>
-<a href="https://lin.ee/RVQspqT" target="_blank">LINE</a>
+<a href="https://www.facebook.com/share/14Xoq1QLFbR/?mibextid=wwXIfr">Facebook</a>
+<a href="https://drive.google.com/drive/folders/18aTrqlbZ0WSCWp40Ep9OjWIJTsfvfTQp">Series</a>
+<a href="https://lin.ee/RVQspqT">Line OA</a>
 </div>
 
-<p class="small">© 2026 khunxkinji</p>
+<p class="small">
+© 2026 khunxkinji - Premium Service
+</p>
 </div>
 
 </div>
